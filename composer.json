@@ -1,0 +1,32 @@
+{
+  "name": "swiftyper/swiftyper-php",
+  "description": "swiftyper PHP Library",
+  "keywords": [
+    "swiftyper",
+    "api"
+  ],
+  "homepage": "https://swiftyper.sk/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Swiftyper and contributors",
+      "homepage": "https://github.com/swiftyper-sk/swiftyper-php/contributors"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Swiftyper\\": "lib/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0-dev"
+    }
+  }
+}
