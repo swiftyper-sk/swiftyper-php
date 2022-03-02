@@ -2,7 +2,7 @@
 
 namespace Swiftyper;
 
-class PostalCode extends Place
+class PostalCode extends Places
 {
     const OBJECT_NAME = 'postal_code';
 }

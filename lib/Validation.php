@@ -2,7 +2,7 @@
 
 namespace Swiftyper;
 
-class Validation extends Place
+class Validation extends Places
 {
     const OBJECT_NAME = 'validation';
 

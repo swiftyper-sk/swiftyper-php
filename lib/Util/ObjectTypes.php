@@ -8,7 +8,7 @@ class ObjectTypes
      * @var array Mapping from object types to resource classes
      */
     const mapping = [
-        \Swiftyper\Place::OBJECT_NAME => \Swiftyper\Place::class,
+        \Swiftyper\Places::OBJECT_NAME => \Swiftyper\Places::class,
             \Swiftyper\Address::OBJECT_NAME => \Swiftyper\Address::class,
             \Swiftyper\Street::OBJECT_NAME => \Swiftyper\Street::class,
             \Swiftyper\Municipality::OBJECT_NAME => \Swiftyper\Municipality::class,

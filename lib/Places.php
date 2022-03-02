@@ -3,7 +3,7 @@
 namespace Swiftyper;
 
 /**
- * **<a href="https://developers.swiftyper.sk/docs/api#places">Swiftyper Places API</a></strong>
+ * <strong><a href="https://developers.swiftyper.sk/docs/api#places">Swiftyper Places API</a></strong>
  *
  * Prostredníctvom služby <strong>Swiftyper Places API</strong> je možné vyhľadať viacero druhov miest - adresu, ulicu, obec a poštové smerovacie číslo.
  *
@@ -24,7 +24,7 @@ namespace Swiftyper;
  * @property string          $formatted_country Názov krajiny
  * @property string          $country Kód krajiny (dvojmiestny alfabetický kód ISO 3166)
  */
-class Place extends ApiResource
+class Places extends ApiResource
 {
     const OBJECT_NAME = 'places';
 

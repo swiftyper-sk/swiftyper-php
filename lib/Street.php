@@ -2,7 +2,7 @@
 
 namespace Swiftyper;
 
-class Street extends Place
+class Street extends Places
 {
     const OBJECT_NAME = 'street';
 }

@@ -2,7 +2,7 @@
 
 namespace Swiftyper;
 
-class Municipality extends Place
+class Municipality extends Places
 {
     const OBJECT_NAME = 'municipality';
 }
