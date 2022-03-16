@@ -16,5 +16,8 @@ class ObjectTypes
             \Swiftyper\Validation::OBJECT_NAME => \Swiftyper\Validation::class,
 
         \Swiftyper\Business::OBJECT_NAME => \Swiftyper\Business::class,
+
+        \Swiftyper\Phrase::OBJECT_NAME => \Swiftyper\Phrase::class,
+        \Swiftyper\Translation::OBJECT_NAME => \Swiftyper\Translation::class,
     ];
 }

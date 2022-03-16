@@ -4,7 +4,6 @@ namespace Swiftyper\Util;
 
 use Swiftyper\Collection;
 use Swiftyper\SwiftyperObject;
-use function Couchbase\defaultDecoder;
 
 abstract class Util
 {

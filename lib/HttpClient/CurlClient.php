@@ -209,7 +209,18 @@ class CurlClient implements ClientInterface
 
         $params = Util\Util::objectsToIds($params);
 
-        if ('post' === $method) {
+        if ('get' === $method) {
+            if ($hasFile) {
+                throw new Exception\UnexpectedValueException(
+                    'Issuing a GET request with a file parameter'
+                );
+            }
+            $opts[\CURLOPT_HTTPGET] = 1;
+            if (\count($params) > 0) {
+                $encoded = Util\Util::encodeParameters($params);
+                $absUrl = "{$absUrl}?{$encoded}";
+            }
+        } elseif ('post' === $method) {
             $opts[\CURLOPT_POST] = 1;
             $opts[\CURLOPT_POSTFIELDS] = $hasFile ? $params : Util\Util::encodeParameters($params);
         } else {

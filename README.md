@@ -38,13 +38,13 @@ Pred začatím používania je nutné nastaviť API kľúč ktorý môžete spra
 **API kľúče sú predvolene neobmedzené.** Neobmedzené kľúče nie sú bezpečné, pretože ich môže používať ktokoľvek a odkiaľkoľvek. Pre produkčné aplikácie odporúčame nastaviť obmedzenia API kľúča nakoľko pomáhajú zabrániť neoprávnenému použitiu a vyčerpávaniu kvót. Obmedzenia určujú, ktoré webové stránky alebo IP adresy môžu používať API kľúč.
 
 ```php
-$swiftyper = \Swiftyper\Swiftyper::setApiKey('VÁŠ_API_KĽÚČ_SLUŽBY_BUSINESS');
-$business = $swiftyper->business->query([
+\Swiftyper\Swiftyper::setApiKey('VÁŠ_API_KĽÚČ_SLUŽBY_BUSINESS');
+$results = \Swiftyper\Business::query([
     'query'   => 'Google Slovakia',
     'country' => 'SK',
 ]);
 
-var_dump($business);
+var_dump($results);
 ```
 
 ### Pristupovanie k odpovedi požiadavky
@@ -52,7 +52,7 @@ var_dump($business);
 Údaje z API odpovede na ľubovoľnom objekte môžete získať prostredníctvom metódy `getLastResponse()`.
 
 ```php
-$business = $swiftyper->customers->detail('sk_WbilvhDEDokFTWk0FbNjeQ');
+$business = \Swiftyper\Business::detail('sk_WbilvhDEDokFTWk0FbNjeQ');
 var_dump($business->getLastResponse());
 ```
 
