@@ -2,7 +2,7 @@
 
 ## Dokumentácia
 
-[`swiftyper-node` API dokumentácia](https://developers.swiftyper.sk/docs/api/php) pre PHP.
+[`swiftyper-php` API dokumentácia](https://developers.swiftyper.sk/docs/api/php) pre PHP.
 
 ## Požiadavky
 

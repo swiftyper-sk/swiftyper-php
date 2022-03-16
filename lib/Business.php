@@ -43,7 +43,7 @@ class Business extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      * @return \Swiftyper\Collection<Business> nájdené subjekty
      */
@@ -66,7 +66,7 @@ class Business extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      * @return \Swiftyper\Business nájdený subjekt
      */
@@ -88,7 +88,7 @@ class Business extends ApiResource
      * @param string $business_id
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      * @return \Swiftyper\Business nájdený subjekt
      */

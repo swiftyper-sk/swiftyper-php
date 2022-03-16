@@ -37,7 +37,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\Address> nájdené adresy
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function query($params = null, $opts = null)
@@ -59,7 +59,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam krajov
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function regions($opts = null)
@@ -81,7 +81,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam okresov
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function counties($opts = null)
@@ -103,7 +103,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\Street> nájdené ulice
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function street($params = null, $opts = null)
@@ -125,7 +125,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\Municipality> nájdené obce
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function municipality($params = null, $opts = null)
@@ -147,7 +147,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\PostalCode> nájdené psč
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function postal($params = null, $opts = null)
@@ -171,7 +171,7 @@ class Places extends ApiResource
      * @param null|array|Util\RequestOptions|string $opts
      *
      * @return \Swiftyper\Address|\Swiftyper\Street|\Swiftyper\Municipality|\Swiftyper\PostalCode nájdené miesto
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function detail($place_id, $opts = null)
@@ -192,7 +192,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\Address> nájdené miesta
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function reverse($params = null, $opts = null)
@@ -214,7 +214,7 @@ class Places extends ApiResource
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> výsledok validácie
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požidavky
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
     public static function validate($params = null, $opts = null)
