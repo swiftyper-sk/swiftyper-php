@@ -80,6 +80,28 @@ class Translation extends ApiResource
     }
 
     /**
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#translations_upload">Uloženie prekladov</a></strong>
+     *
+     * Hromadné ukladanie prekladov.
+     *
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     *
+     * @return \Swiftyper\SwiftyperObject
+     */
+    public static function upload($params = null, $opts = null)
+    {
+        $url = static::classUrl() . '/upload';
+        list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
+        $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
+        $obj->setLastResponse($response);
+
+        return $obj;
+    }
+
+    /**
      * Načítanie prekladov v FBT formáte.
      *
      * @param null|array $params
