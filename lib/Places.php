@@ -54,7 +54,7 @@ class Places extends ApiResource
      * <strong><a href="https://developers.swiftyper.sk/docs/api#place_region_codes">Číselník krajov</a></strong>
      *
      * Zobrazenie základného zoznamu obsahujúceho kraje konkrétnej krajiny.
-     * Zobrazenie číselníku sa nepočíta do mesačého limitu.
+     * Zobrazenie číselníku sa nepočíta do mesačného limitu.
      *
      * @param null|array|string $opts
      *
@@ -76,7 +76,7 @@ class Places extends ApiResource
      * <strong><a href="https://developers.swiftyper.sk/docs/api#place_county_codes">Číselník okresov</a></strong>
      *
      * Zobrazenie základného zoznamu obsahujúceho okresy konkrétnej krajiny.
-     * Zobrazenie číselníku sa nepočíta do mesačého limitu.
+     * Zobrazenie číselníku sa nepočíta do mesačného limitu.
      *
      * @param null|array|string $opts
      *
@@ -87,6 +87,28 @@ class Places extends ApiResource
     public static function counties($opts = null)
     {
         $url = static::classUrl().'/counties';
+        list($response, $opts) = static::_staticRequest('post', $url, [], $opts);
+        $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
+        $obj->setLastResponse($response);
+
+        return $obj;
+    }
+
+    /**
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_municipalities_codes">Číselník miest a obcí</a></strong>
+     *
+     * Zobrazenie základného zoznamu obsahujúceho mestá a obce konkrétnej krajiny.
+     * Zobrazenie číselníku sa nepočíta do mesačného limitu.
+     *
+     * @param null|array|string $opts
+     *
+     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam miest a obcí
+     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     *
+     */
+    public static function municipalities($opts = null)
+    {
+        $url = static::classUrl().'/municipalities';
         list($response, $opts) = static::_staticRequest('post', $url, [], $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);
