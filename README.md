@@ -44,7 +44,7 @@ $results = \Swiftyper\Business::query([
     'country' => 'SK',
 ]);
 
-var_dump($results);
+var_dump($results->toArray());
 ```
 
 ### Pristupovanie k odpovedi požiadavky
