@@ -56,16 +56,17 @@ class Places extends ApiResource
      * Zobrazenie základného zoznamu obsahujúceho kraje konkrétnej krajiny.
      * Zobrazenie číselníku sa nepočíta do mesačného limitu.
      *
+     * @param null|array        $params
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam krajov
      * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
-    public static function regions($opts = null)
+    public static function regions($params = null, $opts = null)
     {
         $url = static::classUrl().'/regions';
-        list($response, $opts) = static::_staticRequest('post', $url, [], $opts);
+        list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);
 
@@ -78,16 +79,17 @@ class Places extends ApiResource
      * Zobrazenie základného zoznamu obsahujúceho okresy konkrétnej krajiny.
      * Zobrazenie číselníku sa nepočíta do mesačného limitu.
      *
+     * @param null|array        $params
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam okresov
      * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
-    public static function counties($opts = null)
+    public static function counties($params = null, $opts = null)
     {
         $url = static::classUrl().'/counties';
-        list($response, $opts) = static::_staticRequest('post', $url, [], $opts);
+        list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);
 
@@ -100,16 +102,17 @@ class Places extends ApiResource
      * Zobrazenie základného zoznamu obsahujúceho mestá a obce konkrétnej krajiny.
      * Zobrazenie číselníku sa nepočíta do mesačného limitu.
      *
+     * @param null|array        $params
      * @param null|array|string $opts
      *
      * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam miest a obcí
      * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
      *
      */
-    public static function municipalities($opts = null)
+    public static function municipalities($params = null, $opts = null)
     {
         $url = static::classUrl().'/municipalities';
-        list($response, $opts) = static::_staticRequest('post', $url, [], $opts);
+        list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);
 
