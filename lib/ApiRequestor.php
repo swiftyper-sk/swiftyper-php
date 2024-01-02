@@ -291,7 +291,22 @@ class ApiRequestor
         $params = self::_encodeObjects($params);
         $defaultHeaders = $this->_defaultHeaders($myApiKey, $clientUAInfo);
 
-        $defaultHeaders['Content-Type'] = 'application/x-www-form-urlencoded';
+        $hasFile = false;
+        $hasCurlFile = class_exists('\CURLFile', false);
+        foreach ($params as $k => $v) {
+            if (is_resource($v)) {
+                $hasFile = true;
+                $params[$k] = self::_processResourceParam($v, $hasCurlFile);
+            } elseif ($hasCurlFile && $v instanceof \CURLFile) {
+                $hasFile = true;
+            }
+        }
+
+        if ($hasFile) {
+            $defaultHeaders['Content-Type'] = 'multipart/form-data';
+        } else {
+            $defaultHeaders['Content-Type'] = 'application/x-www-form-urlencoded';
+        }
 
         $combinedHeaders = \array_merge($defaultHeaders, $headers);
         $rawHeaders = [];
@@ -305,10 +320,39 @@ class ApiRequestor
             $absUrl,
             $rawHeaders,
             $params,
-            false
+            $hasFile
         );
 
         return [$rbody, $rcode, $rheaders, $myApiKey];
+    }
+    /**
+     * @param resource $resource
+     * @param bool     $hasCurlFile
+     *
+     * @return \CURLFile|string
+     * @throws Exception\UnexpectedValueException
+     */
+    private function _processResourceParam($resource, $hasCurlFile)
+    {
+        if (get_resource_type($resource) !== 'stream') {
+            throw new Exception\UnexpectedValueException(
+                'Attempted to upload a resource that is not a stream'
+            );
+        }
+
+        $metaData = stream_get_meta_data($resource);
+        if ($metaData['wrapper_type'] !== 'plainfile') {
+            throw new Exception\UnexpectedValueException(
+                'Only plainfile resource streams are supported'
+            );
+        }
+
+        if ($hasCurlFile) {
+            // We don't have the filename or mimetype, but the API doesn't care
+            return new \CURLFile($metaData['uri']);
+        } else {
+            return '@'.$metaData['uri'];
+        }
     }
 
     /**
