@@ -43,7 +43,7 @@ class Translation extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      * @return \Swiftyper\Collection<Translation> nájdené preklady
      */
@@ -65,7 +65,7 @@ class Translation extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      * @return \Swiftyper\SwiftyperObject
      */
@@ -87,7 +87,7 @@ class Translation extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      * @return \Swiftyper\SwiftyperObject
      */
@@ -107,7 +107,7 @@ class Translation extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      * @return \Swiftyper\SwiftyperObject
      */
@@ -127,7 +127,7 @@ class Translation extends ApiResource
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      * @return \Swiftyper\SwiftyperObject
      */

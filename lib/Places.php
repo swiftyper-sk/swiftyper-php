@@ -5,39 +5,39 @@ namespace Swiftyper;
 /**
  * <strong><a href="https://developers.swiftyper.sk/docs/api#places">Swiftyper Places API</a></strong>
  *
- * Prostredníctvom služby <strong>Swiftyper Places API</strong> je možné vyhľadať viacero druhov miest - adresu, ulicu, obec a poštové smerovacie číslo.
+ * Through the <strong>Swiftyper Places API</strong> service, it is possible to search for several types of places - address, street, municipality, and postal code.
  *
- * @property string          $place_id Unikátny identifikátor miesta
- * @property string          $highlight Zvýraznená časť zhodná s dopytom vyhľadávania
- * @property null|string     $formatted_address Naformátovaná adresa miesta
- * @property null|string     $street Názov ulice
- * @property null|string     $formatted_street Naformátovaná ulica
- * @property null|string     $street_number Súpisné číslo
- * @property null|string     $building_number Orientačné číslo
- * @property null|string     $formatted_number Naformátované číslo ulice
- * @property null|string     $postal_code Poštové smerovacie číslo
- * @property string          $municipality Názov obce
- * @property string          $county Názov okresu
- * @property string          $region Názov kraju
- * @property SwiftyperObject $latlng Geokódovaná zemepisná šírka a dĺžka
- * @property string          $object Typ objektu, môže byť 'address', 'street', 'municipality', 'postal_code'
- * @property string          $formatted_country Názov krajiny
- * @property string          $country Kód krajiny (dvojmiestny alfabetický kód ISO 3166)
+ * @property string          $place_id Unique identifier of the place
+ * @property string          $highlight Highlighted part matching the search query
+ * @property null|string     $formatted_address Formatted address of the place
+ * @property null|string     $street Street name
+ * @property null|string     $formatted_street Formatted street
+ * @property null|string     $street_number Conscription number
+ * @property null|string     $building_number Orientation number
+ * @property null|string     $formatted_number Formatted street number
+ * @property null|string     $postal_code Postal code
+ * @property string          $municipality Municipality name
+ * @property string          $county County name
+ * @property string          $region Region name
+ * @property SwiftyperObject $latlng Geocoded latitude and longitude
+ * @property string          $object Type of object, can be 'address', 'street', 'municipality', 'postal_code'
+ * @property string          $formatted_country Country name
+ * @property string          $country Country code (two-letter ISO 3166 code)
  */
 class Places extends ApiResource
 {
     const OBJECT_NAME = 'places';
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_query">Vyhľadanie adresy</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_query">Searching for an address</a></strong>
      *
-     * Vyhľadanie poštových adries cez akúkoľvek časť adresy
+     * Searching for postal addresses through any part of the address.
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\Address> nájdené adresy
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\Address> found addresses
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function query($params = null, $opts = null)
@@ -51,16 +51,16 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_region_codes">Číselník krajov</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_region_codes">List of regions</a></strong>
      *
-     * Zobrazenie základného zoznamu obsahujúceho kraje konkrétnej krajiny.
-     * Zobrazenie číselníku sa nepočíta do mesačného limitu.
+     * Displaying a basic list containing the regions of a specific country.
+     * Displaying the code list does not count towards the monthly limit.
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam krajov
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> list of regions
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function regions($params = null, $opts = null)
@@ -74,16 +74,16 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_county_codes">Číselník okresov</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_county_codes">List of counties</a></strong>
      *
-     * Zobrazenie základného zoznamu obsahujúceho okresy konkrétnej krajiny.
-     * Zobrazenie číselníku sa nepočíta do mesačného limitu.
+     * Displaying a basic list containing the counties of a specific country.
+     * Displaying the code list does not count towards the monthly limit.
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam okresov
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> list of counties
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function counties($params = null, $opts = null)
@@ -97,16 +97,16 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_municipalities_codes">Číselník miest a obcí</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_municipalities_codes">List of municipalities</a></strong>
      *
-     * Zobrazenie základného zoznamu obsahujúceho mestá a obce konkrétnej krajiny.
-     * Zobrazenie číselníku sa nepočíta do mesačného limitu.
+     * Displaying a basic list containing the municipalities of a specific country.
+     * Displaying the code list does not count towards the monthly limit.
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> zoznam miest a obcí
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> list of municipalities
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function municipalities($params = null, $opts = null)
@@ -120,15 +120,15 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_street">Vyhľadanie ulice</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_street">Searching for a street</a></strong>
      *
-     * Vyhľadanie ulíc na základe názvu
+     * Searching for streets based on the name
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\Street> nájdené ulice
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\Street> found streets
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function street($params = null, $opts = null)
@@ -142,15 +142,15 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_municipality">Vyhľadanie obce</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_municipality">Searching for a municipality</a></strong>
      *
-     * Vyhľadanie obcí na základe názvu
+     * Searching for municipalities based on the name
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\Municipality> nájdené obce
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\Municipality> found municipalities
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function municipality($params = null, $opts = null)
@@ -164,15 +164,15 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_postal">Vyhľadanie PSČ</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_postal">Searching for a postal code</a></strong>
      *
-     * Vyhľadanie poštového smerovacieho čísla na základe kódu
+     * Searching for a postal code based on the code
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\PostalCode> nájdené psč
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\PostalCode> found postal codes
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function postal($params = null, $opts = null)
@@ -186,17 +186,17 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_detail">Detail miesta</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_detail">Details of the place</a></strong>
      *
-     * Načítanie podrobností na základe identifikátora miesta.
-     * Prostredníctvom identifikátora je možné načítať adresu,
-     * ulicu, obec a poštové smerovacie čísla.
+     * Loading details based on the place identifier.
+     * Through the identifier, it is possible to load an address,
+     * street, municipality, and postal code.
      *
      * @param string                                $place_id
      * @param null|array|Util\RequestOptions|string $opts
      *
-     * @return \Swiftyper\Address|\Swiftyper\Street|\Swiftyper\Municipality|\Swiftyper\PostalCode nájdené miesto
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Address|\Swiftyper\Street|\Swiftyper\Municipality|\Swiftyper\PostalCode found place/address/street/municipality/postal code
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function detail($place_id, $opts = null)
@@ -209,15 +209,15 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_reverse_geocoding">Reverzné geokódovanie</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_reverse_geocoding">Reverse geocoding</a></strong>
      *
-     * Vyhľadávanie adresy podľa zemepisných súradníc (GPS, systém <a href="https://sk.wikipedia.org/wiki/Svetov%C3%BD_geodetick%C3%BD_syst%C3%A9m_1984">WGS84</a>).
+     * Searching for an address based on geographical coordinates (GPS, system <a href="https://sk.wikipedia.org/wiki/Svetov%C3%BD_geodetick%C3%BD_syst%C3%A9m_1984">WGS84</a>).
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\Address> nájdené miesta
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\Address> found addresses
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function reverse($params = null, $opts = null)
@@ -231,15 +231,15 @@ class Places extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_validation">Overenie adresy</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#place_validation">Address validation</a></strong>
      *
-     * Overenie adresy
+     * Address validation.
      *
      * @param null|array        $params
      * @param null|array|string $opts
      *
-     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> výsledok validácie
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @return \Swiftyper\Collection<\Swiftyper\SwiftyperObject> validation result
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      */
     public static function validate($params = null, $opts = null)

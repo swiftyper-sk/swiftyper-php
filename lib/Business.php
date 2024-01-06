@@ -5,47 +5,47 @@ namespace Swiftyper;
 /**
  * <strong><a href="https://developers.swiftyper.sk/docs/api#business">Swiftyper Business API</a></strong>
  *
- * Prostredníctvom služby <strong>Swiftyper Business API</strong> je možné vyhľadať
- * právnicke osoby a SZČO viacerými spôsobmi - prostredníctvom identifikačného čísla
- * organizácie a na základe názvu právnickej osoby prípadne SZČO.
+ * Through the <strong>Swiftyper Business API</strong> service, it is possible to search
+ * for legal entities and self-employed individuals in several ways - through the identification number
+ * of the organization and based on the name of the legal entity or self-employed individual.
  *
- * @property string $business_id Unikátny identifikátor subjektu
- * @property string $highlight Zvýraznená časť zhodná s dopytom vyhľadávania
- * @property string $name Názov subjektu
- * @property string $established_on Dátum vzniku
- * @property string $terminated_on Dátum zániku
- * @property string $cin Identifikačné číslo organizácie (IČO)
- * @property string $tin Daňové identifikačné číslo (DIČ)
- * @property string $vatin Identifikačné číslo pre daň z pridanej hodnoty (IČ DPH)
- * @property string $formatted_address Naformátovaná adresa
- * @property string $street Názov ulice
- * @property string $formatted_street Naformátovaná ulica
- * @property string $street_number Súpisné číslo
- * @property string $building_number Orientačné číslo
- * @property string $formatted_number Naformátované číslo ulice
- * @property string $postal_code PSČ
- * @property string $municipality Názov obce
- * @property string $legal_form Názov právnej formy
- * @property string $object Typ objektu, môže byť 'business'
- * @property string $formatted_country Názov krajiny
- * @property string $country Kód krajiny (dvojmiestny alfabetický kód ISO 3166)
+ * @property string $business_id Unique identifier of the subject
+ * @property string $highlight Highlighted part matching the search query
+ * @property string $name Name of the subject
+ * @property string $established_on Date of establishment
+ * @property string $terminated_on Date of termination
+ * @property string $cin Identification number of the organization (CIN)
+ * @property string $tin Tax identification number (TIN)
+ * @property string $vatin Identification number for value added tax (VATIN)
+ * @property string $formatted_address Formatted address
+ * @property string $street Street name
+ * @property string $formatted_street Formatted street
+ * @property string $street_number Conscription number
+ * @property string $building_number Orientation number
+ * @property string $formatted_number Formatted street number
+ * @property string $postal_code Postal code
+ * @property string $municipality Name of the municipality
+ * @property string $legal_form Name of the legal form
+ * @property string $object Type of object, can be 'business'
+ * @property string $formatted_country Country name
+ * @property string $country Country code (two-letter ISO 3166 code)
  */
 class Business extends ApiResource
 {
     const OBJECT_NAME = 'business';
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#business_query">Vyhľadanie subjektu</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#business_query">Searching for a business record</a></strong>
      *
-     * Vyhľadanie kontaktných a fakturačných údajov o právnických osobách
-     * a SZČO na základe názvu právnickej osoby prípadne SZČO.
+     * Searching for contact and billing information about legal entities and self-employed individuals
+     * based on the name of the legal entity or self-employed individual.
      *
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
-     * @return \Swiftyper\Collection<Business> nájdené subjekty
+     * @return \Swiftyper\Collection<Business> found business records
      */
     public static function query($params = null, $opts = null)
     {
@@ -58,17 +58,17 @@ class Business extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#business_identifier">Vyhľadanie podľa IČO</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#business_identifier">Searching by CIN</a></strong>
      *
-     * Vyhľadanie kontaktných a fakturačných údajov o právnických osobách
-     * a SZČO na základe identifikačného čísla organizácie.
+     * Searching for contact and billing information about legal entities and self-employed individuals
+     * based on the identification number of the organization.
      *
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
-     * @return \Swiftyper\Business nájdený subjekt
+     * @return \Swiftyper\Business found business record
      */
     public static function identifier($params = null, $opts = null)
     {
@@ -81,16 +81,16 @@ class Business extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#business_detail">Detail subjektu</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#business_detail">Business record details</a></strong>
      *
-     * Načítanie podrobností právnickej osoby a SZČO na základe identifikátora subjektu.
+     * Loading details of a legal entity and self-employed individual based on the subject identifier.
      *
      * @param string $business_id
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
-     * @return \Swiftyper\Business nájdený subjekt
+     * @return \Swiftyper\Business found business record
      */
     public static function detail($business_id, $opts = null)
     {

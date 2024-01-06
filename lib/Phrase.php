@@ -5,9 +5,9 @@ namespace Swiftyper;
 /**
  * <strong><a href="https://developers.swiftyper.sk/docs/api#intl">Swiftyper Internationalization API</a></strong>
  *
- * Prostredníctvom služby <strong>Swiftyper Internationalization API</strong> je možné vyhľadať
- * a uložiť frázy v anglickom jazyku do databázy aby sa dali preložiť. Ďalšie informácie o prekladoch nájdete
- * v časti <a href="https://developers.swiftyper.sk/docs/api#translations">Preklady</a>.
+ * Through the <strong>Swiftyper Internationalization API</strong> service,
+ * it is possible to search for and save phrases in English into the database, so they can be translated. You can find more information about translations
+ * in the <a href="https://developers.swiftyper.sk/docs/api#translations">Translations</a>.
  *
  * @property int $id
  * @property int $parent_id
@@ -34,16 +34,16 @@ class Phrase extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_query">Vyhľadanie fráz</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_query">Searching for native phrases</a></strong>
      *
-     * Vyhľadanie natívnych fráz.
+     * Searching for native phrases.
      *
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
-     * @return \Swiftyper\Collection<Phrase> nájdené frázy
+     * @return \Swiftyper\Collection<Phrase> found phrases
      */
     public static function query($params = null, $opts = null)
     {
@@ -56,16 +56,16 @@ class Phrase extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_upload">Uloženie fráz</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_upload">Saving native phrases</a></strong>
      *
-     * Uloženie natívnych fráz.
+     * Saving native phrases.
      *
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
-     * @return \Swiftyper\SwiftyperObject
+     * @return \Swiftyper\SwiftyperObject upload results
      */
     public static function upload($params = null, $opts = null)
     {
@@ -78,16 +78,16 @@ class Phrase extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_raw">Načítanie fráz v FBT formáte</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_raw">Loading native phrases in FBT format</a></strong>
      *
-     * Načítanie natívnych fráz v FBT formáte.
+     * Loading native phrases in FBT format.
      *
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
-     * @return \Swiftyper\SwiftyperObject
+     * @return \Swiftyper\SwiftyperObject raw phrases
      */
     public static function raw($params = null, $opts = null)
     {

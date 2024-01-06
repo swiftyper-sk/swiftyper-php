@@ -16,13 +16,13 @@ class ImageUtil extends ApiResource
     }
 
     /**
-     * Optimalizácia veľkosti obrázka.
+     * Image optimization.
      *
      * @param string $filename
      * @param null|array|string $opts
      *
      * @return SwiftyperObject
-     * @throws ApiErrorException v prípade zlyhania požiadavky
+     * @throws ApiErrorException if the request fails
      */
     public static function optimize($filename, $opts = null)
     {

@@ -4,7 +4,7 @@ namespace Swiftyper;
 
 use Swiftyper\Exception\ApiErrorException;
 
-class Translator extends ApiResource
+class Email extends ApiResource
 {
     /**
      * @return string The class URL for this resource. It needs to be special
@@ -12,25 +12,23 @@ class Translator extends ApiResource
      */
     public static function classUrl()
     {
-        return '/v1/utils/translator';
+        return '/v1/utils/email';
     }
 
     /**
-     * Prekladanie textu.
+     * Validate email address.
      *
-     * @param string $query
-     * @param string $targetLanguage
-     * @param string $sourceLanguage
-     * @return SwiftyperObject
+     * @param string $email
+     * @param null|array|string $opts
+     *
+     * @return SwiftyperObject validation result
      * @throws ApiErrorException if the request fails
      */
-    public static function translate($query, $targetLanguage, $sourceLanguage = 'auto', $opts = null)
+    public static function validate($email, $opts = null)
     {
-        $url = static::classUrl() . '/translate';
+        $url = static::classUrl() . '/validate';
         list($response, $opts) = static::_staticRequest('post', $url, [
-            'q' => $query,
-            'sl' => $sourceLanguage,
-            'tl' => $targetLanguage,
+            'email' => $email,
         ], $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);

@@ -14,12 +14,12 @@ class Fbt extends ApiResource
     }
 
     /**
-     * <strong>Inicializácia FBT projektu</strong>
+     * <strong>Initialize FBT project</strong>
      *
      * @param null|array $params
      * @param null|array|string $opts
      *
-     * @throws \Swiftyper\Exception\ApiErrorException v prípade zlyhania požiadavky
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
      *
      * @return \Swiftyper\SwiftyperObject
      */

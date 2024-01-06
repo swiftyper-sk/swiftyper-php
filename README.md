@@ -1,44 +1,43 @@
 # Swiftyper PHP
 
-## Dokumentácia
+## Documentation
 
-[`swiftyper-php` API dokumentácia](https://developers.swiftyper.sk/docs/api/php) pre PHP.
+[`swiftyper-php` API documentation](https://developers.swiftyper.sk/docs/api/php) for PHP.
 
-## Požiadavky
+## Requirements
 
 PHP 5.6.0+.
 
 ## Composer
 
-Knižnicu je možné nainštalovať cez [Composer](http://getcomposer.org/). Stačí zadať príkaz:
+You can install the bindings via [Composer](http://getcomposer.org/). Run the following command:
 
 ```bash
 composer require swiftyper/swiftyper-php
 ```
 
-Následne do vašej aplikácie pridajte [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
+To use the bindings, use Composer's [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
 
 ```php
 require_once('vendor/autoload.php');
 ```
 
-## Manuálna inštalácia
+## Manual installation
 
-Pri manuálnej inštalácii stačí stiahnuť [vydanie knižnice](https://github.com/swiftyper-sk/swiftyper-php/releases).
-Následne je nutné pridať tento inicializačný súbor:
+If you do not wish to use Composer, you can download the [latest release](https://github.com/swiftyper-sk/swiftyper-php/releases). Then, to use the bindings, include the `init.php` file.
 
 ```php
 require_once('/path/to/swiftyper-php/init.php');
 ```
 
-## Použitie
+## Usage
 
-Pred začatím používania je nutné nastaviť API kľúč ktorý môžete spravovať cez Váš [používateľský účet](https://manage.swiftyper.sk/dashboard).
+Before you start using it, you need to set the API key which you can manage through your [user account](https://manage.swiftyper.sk/dashboard).
 
-**API kľúče sú predvolene neobmedzené.** Neobmedzené kľúče nie sú bezpečné, pretože ich môže používať ktokoľvek a odkiaľkoľvek. Pre produkčné aplikácie odporúčame nastaviť obmedzenia API kľúča nakoľko pomáhajú zabrániť neoprávnenému použitiu a vyčerpávaniu kvót. Obmedzenia určujú, ktoré webové stránky alebo IP adresy môžu používať API kľúč.
+**API keys are unlimited by default.** Unlimited keys are not safe because they can be used by anyone and from anywhere. For production applications, we recommend setting API key restrictions as they help prevent unauthorized use and exhaustion of quotas. Restrictions determine which websites or IP addresses can use the API key.
 
 ```php
-\Swiftyper\Swiftyper::setApiKey('VÁŠ_API_KĽÚČ_SLUŽBY_BUSINESS');
+\Swiftyper\Swiftyper::setApiKey('API_KEY_OF_SWIFTYPER_BUSINESS');
 $results = \Swiftyper\Business::query([
     'query'   => 'Google Slovakia',
     'country' => 'SK',
@@ -47,18 +46,19 @@ $results = \Swiftyper\Business::query([
 var_dump($results->toArray());
 ```
 
-### Pristupovanie k odpovedi požiadavky
+### Accessing the Response of a Request
 
-Údaje z API odpovede na ľubovoľnom objekte môžete získať prostredníctvom metódy `getLastResponse()`.
+You can get the data from the API response on any object through the `getLastResponse()` method.
 
 ```php
 $business = \Swiftyper\Business::detail('sk_WbilvhDEDokFTWk0FbNjeQ');
 var_dump($business->getLastResponse());
 ```
 
-### Konfigurácia automatického znovupripojenia
+### Configuring Automatic Retries
 
-Knižnici je možné nakonfigurovať počet opakovaní v prípade zlyhania požiadavky.
+It is possible to configure the library to retry a certain number of times in case of a request failure.
+This is useful when you want to make sure that a request is successfully processed even in case of a network failure.
 
 ```php
 \Swiftyper\Swiftyper::setMaxNetworkRetries(2);
