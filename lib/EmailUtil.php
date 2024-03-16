@@ -4,7 +4,7 @@ namespace Swiftyper;
 
 use Swiftyper\Exception\ApiErrorException;
 
-class Email extends ApiResource
+class EmailUtil extends ApiResource
 {
     /**
      * @return string The class URL for this resource. It needs to be special
