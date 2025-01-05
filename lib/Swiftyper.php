@@ -31,7 +31,7 @@ class Swiftyper
     /** @var float Initial delay between retries, in seconds */
     private static $initialNetworkRetryDelay = 0.5;
 
-    const VERSION = '1.1.1';
+    const VERSION = '1.1.2';
 
     /**
      * @return string the API key used for requests
