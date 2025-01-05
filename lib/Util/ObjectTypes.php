@@ -19,5 +19,7 @@ class ObjectTypes
 
         \Swiftyper\Phrase::OBJECT_NAME => \Swiftyper\Phrase::class,
         \Swiftyper\Translation::OBJECT_NAME => \Swiftyper\Translation::class,
+
+        \Swiftyper\ViesUtil::OBJECT_NAME => \Swiftyper\Vies::class,
     ];
 }

@@ -44,7 +44,7 @@ abstract class Util
      */
     public static function convertToSwiftyperObject($resp, $opts)
     {
-        $types = \Swiftyper\Util\ObjectTypes::mapping;
+       $types = \Swiftyper\Util\ObjectTypes::mapping;
        if (self::isList($resp)) {
             $mapped = [];
             foreach ($resp as $i) {
