@@ -3,7 +3,7 @@
 namespace Swiftyper;
 
 /**
- * <strong><a href="https://developers.swiftyper.sk/docs/api#intl">Swiftyper Internationalization API</a></strong>
+ * <strong><a href="https://developers.swiftyper.sk/intl">Swiftyper Internationalization API</a></strong>
  *
  * Through the <strong>Swiftyper Internationalization API</strong> service,
  * it is possible to search for and save phrases in English into the database, so they can be translated. You can find more information about translations
@@ -56,7 +56,7 @@ class Phrase extends ApiResource
     }
 
     /**
-     * <strong><a href="https://developers.swiftyper.sk/docs/api#phrases_upload">Saving native phrases</a></strong>
+     * <strong><a href="https://developers.swiftyper.sk/intl#ulozenie-fraz">Saving native phrases</a></strong>
      *
      * Saving native phrases.
      *
