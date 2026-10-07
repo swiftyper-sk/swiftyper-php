@@ -122,6 +122,27 @@ class Translation extends ApiResource
     }
 
     /**
+     * Hlasovanie za preklad v mene prispievateľa projektu. Parameter 'trid' je identifikátor prekladu
+     * a 'contributor' e-mail člena organizácie, za ktorého sa hlasuje.
+     *
+     * @param null|array $params
+     * @param null|array|string $opts
+     *
+     * @throws \Swiftyper\Exception\ApiErrorException if the request fails
+     *
+     * @return \Swiftyper\SwiftyperObject
+     */
+    public static function vote($params = null, $opts = null)
+    {
+        $url = static::classUrl() . '/vote';
+        list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
+        $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
+        $obj->setLastResponse($response);
+
+        return $obj;
+    }
+
+    /**
      * Vygenerovanie variantov prekladu pokiaľ závisí napr. od počtu, pohlavia subjektu alebo prezerajúceho používateľa.
      *
      * @param null|array $params

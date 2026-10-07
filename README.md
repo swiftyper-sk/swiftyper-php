@@ -46,6 +46,32 @@ $results = \Swiftyper\Business::query([
 var_dump($results->toArray());
 ```
 
+### Withdrawals and Complaints
+
+Record a withdrawal from a distance contract or a complaint from your own e-shop. Use the API key of a withdrawal form project. Every call records a new submission and e-mails a confirmation to the consumer, so don't retry a request that may already have succeeded.
+
+```php
+\Swiftyper\Swiftyper::setApiKey('API_KEY_OF_SWIFTYPER_WITHDRAWALS');
+
+$withdrawal = \Swiftyper\Withdrawal::create([
+    'name'         => 'Jana Nováková',
+    'email'        => 'jana@example.com',
+    'order_number' => '2026-15',
+]);
+
+echo $withdrawal->reference; // #12
+
+$complaint = \Swiftyper\Complaint::create([
+    'name'                 => 'Jana Nováková',
+    'email'                => 'jana@example.com',
+    'order_number'         => '2026-15',
+    'product'              => 'Wireless headphones',
+    'defect'               => 'The left earphone stopped playing.',
+    'requested_resolution' => 'repair',
+    'photos'               => [fopen('/path/to/photo.jpg', 'r')],
+]);
+```
+
 ### Accessing the Response of a Request
 
 You can get the data from the API response on any object through the `getLastResponse()` method.

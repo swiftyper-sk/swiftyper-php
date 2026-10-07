@@ -244,7 +244,7 @@ class Places extends ApiResource
      */
     public static function validate($params = null, $opts = null)
     {
-        $url = static::classUrl().'/validate';
+        $url = static::classUrl().'/validation';
         list($response, $opts) = static::_staticRequest('post', $url, $params, $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);

@@ -94,8 +94,8 @@ class Business extends ApiResource
      */
     public static function detail($business_id, $opts = null)
     {
-        $url = static::classUrl() . '/identifier';
-        list($response, $opts) = static::_staticRequest('post', $url, compact('business_id'), $opts);
+        $url = static::resourceUrl($business_id);
+        list($response, $opts) = static::_staticRequest('post', $url, null, $opts);
         $obj = Util\Util::convertToSwiftyperObject($response->json, $opts);
         $obj->setLastResponse($response);
 
