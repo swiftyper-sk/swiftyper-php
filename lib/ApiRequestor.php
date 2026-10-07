@@ -299,6 +299,14 @@ class ApiRequestor
                 $params[$k] = self::_processResourceParam($v, $hasCurlFile);
             } elseif ($hasCurlFile && $v instanceof \CURLFile) {
                 $hasFile = true;
+            } elseif (\is_array($v) && $v !== [] && \array_filter($v, function ($item) use ($hasCurlFile) {
+                return is_resource($item) || ($hasCurlFile && $item instanceof \CURLFile);
+            }) === $v) {
+                $hasFile = true;
+                unset($params[$k]);
+                foreach (\array_values($v) as $i => $item) {
+                    $params["{$k}[{$i}]"] = is_resource($item) ? self::_processResourceParam($item, $hasCurlFile) : $item;
+                }
             }
         }
 
